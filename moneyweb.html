@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>I don't even know what this website is anymore</h1>
+<p>you should try to get some money I guess</p>
+<ul>
+<li id="copperli">Copper Coins: 0</li> <button type='button' id='copperget' onclick='CopperAdd()'>Get Copper Coin</button>
+<li id='silverli'>Silver Coins: 0</li> <button type='button' id='silverget' onclick='SilverAdd()'>Get Silver Coin(5 copper coins)</button>
+<li id='goldli'>Gold Coins: 0</li> <button type='button' id='goldget' onclick='GoldAdd()'>Get Gold Coin(10 Silver coins)</button>
+<li id='platinumli'>Platinum Coins: 0</li> <button type='button' id='platget' onclick='PlatAdd()'>Get Platinum Coin(3 Gold coins)</button>
+<li id='epictokenli'>Epic Tokens: 0</li> <button type='button' id='epictokget' onclick='EpicTokAdd()'>Get Epic Token(2 Platinum coins)</button>
+</ul>
+<p>Access To the VIP SUPER EPICNESS LOUNGE</p>
+<button type='button' id='vipbut' onclick='vipget()'>2 Epic Tokens</button>
+<p hidden id='viplounge'>You either used an autoclicker, or you have no life and don't care about your hands. Either way, there was no point in doing this and you might have well done something productive.</p>
+<script>
+var copperc = 0;
+var silverc = 0;
+var goldc = 0;
+var platc = 0;
+var epictokc = 0;
+var vipc = 0;
+function CopperAdd () {
+copperc++;
+var coppert = copperc.toString();
+var coppertext = 'Copper Coins:'.concat(coppert);
+document.getElementById('copperli').innerHTML = coppertext
+}
+function SilverAdd() {
+	if (copperc >= 5) SilverAdd2()
+
+	
+}
+function SilverAdd2() {
+silverc++;
+copperc = copperc - 6;
+CopperAdd();
+var silvert = silverc.toString();
+var silvertext = 'Silver Coins:'.concat(silvert);
+document.getElementById('silverli').innerHTML = silvertext
+}
+function GoldAdd() {
+	if (silverc >= 10) GoldAdd2();
+}
+function GoldAdd2() {
+	goldc++;
+	silverc = silverc - 10;
+var silvert = silverc.toString();
+var silvertext = 'Silver Coins:'.concat(silvert);
+document.getElementById('silverli').innerHTML = silvertext
+	var goldt = goldc.toString();
+	var goldtext = 'Gold Coins:'.concat(goldt);
+	document.getElementById('goldli').innerHTML = goldtext
+}
+function PlatAdd() {
+	if (goldc >= 3) PlatAdd2();
+}
+function PlatAdd2() {
+	platc++;
+	goldc = goldc - 3;
+var goldt = goldc.toString();
+var goldtext = 'Gold Coins:'.concat(goldt);
+document.getElementById('goldli').innerHTML = goldtext
+	var platt = platc.toString();
+	var plattext = 'Platinum Coins:'.concat(platt);
+	document.getElementById('platinumli').innerHTML = plattext
+}
+function EpicTokAdd() {
+	if (platc >= 2) EpicTokAdd2();
+}
+function EpicTokAdd2 () {
+	epictokc++;
+	platc = platc - 2;
+var platt = platc.toString();
+var plattext = 'Platinum Coins:'.concat(platt);
+document.getElementById('platinumli').innerHTML = plattext
+	var epictokt = epictokc.toString();
+	var epictoktext = 'Epic Tokens:'.concat(epictokt);
+	document.getElementById('epictokenli').innerHTML = epictoktext
+}
+function vipget() {
+		if (epictokc >= 2) vipget2();
+
+}
+function vipget2() {
+	vipc++;
+	epictokc = epictokc - 2;
+var epictokt = epictokc.toString();
+var epictoktext = 'Epic Tokens:'.concat(epictokt);
+document.getElementById('epictokenli').innerHTML = epictoktext
+document.getElementById('viplounge').hidden = false
+}
+</script>
+
+</body>
+</html>
